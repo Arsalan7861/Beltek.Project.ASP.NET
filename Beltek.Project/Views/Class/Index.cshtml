@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Class>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="ClassOperationPartial" />
+
+<br />
+
+<table class="table table-secondary">
+    <thead>
+        <tr>
+            <th colspan="5" style="text-align:center">Classes</th>
+        </tr>
+        <tr>
+            <th>ID</th>
+            <th>Class Name</th>
+            <th>Quota</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Classid</td>
+                <td>@item.ClassName</td>
+                <td>@item.Quota</td>
+                <td>
+                    <a asp-action="EditClass" asp-controller="Class" asp-route-id="@item.Classid" class="btn btn-primary">Edit</a>
+                    <a asp-action="DeleteClass" asp-controller="Class" asp-route-id="@item.Classid" class="btn btn-danger" onclick="return confirm('Are You Sure?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

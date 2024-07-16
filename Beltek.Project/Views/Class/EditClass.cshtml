@@ -1,0 +1,29 @@
+﻿@model Class
+@{
+    ViewData["Title"] = "EditClass";
+}
+
+<partial name="ClassOperationPartial" />
+
+<br />
+
+<form class="row g-3" asp-action="EditClass" asp-controller="Class" method="post">
+    <input type="hidden" asp-for="Classid">
+    <div class="col-6">
+        <label class="form-label">Class</label>
+        <select asp-for="ClassName" class="form-select">
+            <option selected>Choose...</option>
+            <option>Math</option>
+            <option>Programming</option>
+            <option>English</option>
+            <option>Physics</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Quota" class="form-label"></label>
+        <input asp-for="Quota" class="form-control">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

@@ -1,0 +1,37 @@
+﻿@model Student
+@{
+    ViewData["Title"] = "AddStudent";
+}
+
+<partial name="StudentOperationPartial" />
+
+<br />
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-warning">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<form class="row g-3" asp-action="AddStudent" asp-controller="Student" method="post">
+    <div class="col-md-6">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Surname" class="form-label"></label>
+        <input asp-for="Surname" class="form-control">
+    </div>
+    <div class="col-6">
+        <label asp-for="Number" class="form-label"></label>
+        <input asp-for="Number" class="form-control" >
+    </div>
+    <div class="col-6">
+        <label class="form-label">Class</label>
+        <select asp-for="Classid" asp-items="ViewBag.Classes" class="form-select"></select>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

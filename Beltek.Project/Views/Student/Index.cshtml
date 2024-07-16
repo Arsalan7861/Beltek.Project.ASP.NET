@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Student>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="StudentOperationPartial" />
+
+<br />
+
+<table class="table table-secondary">
+    <thead>
+        <tr>
+            <th colspan="7" style="text-align:center">Students</th>
+        </tr>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Number</th>
+            <th>Class Name</th>
+            <th>Class ID</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Studentid</td>
+                <td>@item.Name</td>
+                <td>@item.Surname</td>
+                <td>@item.Number</td>
+                <td>@item.Class.ClassName</td>
+                <td>@item.Classid</td>
+                <td>
+                    <a asp-action="EditStudent" asp-controller="Student" asp-route-id="@item.Studentid" class="btn btn-primary">Edit</a>
+                    <a asp-action="DeleteStudent" asp-controller="Student" asp-route-id="@item.Studentid" class="btn btn-danger" onclick="return confirm('Are You Sure?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

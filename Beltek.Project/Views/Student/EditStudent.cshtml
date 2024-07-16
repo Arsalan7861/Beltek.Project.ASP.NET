@@ -1,0 +1,35 @@
+﻿@model Student
+@{
+    ViewData["Title"] = "EditStudent";
+}
+
+<partial name="StudentOperationPartial" />
+
+<br />
+
+<form class="row g-3" asp-action="EditStudent" asp-controller="Student" method="post">
+    <input type="hidden" asp-for="Studentid">
+    <input type="hidden" asp-for="Class.Classid">
+    <div class="col-md-6">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control">
+
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Surname" class="form-label"></label>
+        <input asp-for="Surname" class="form-control">        
+    </div>
+    <div class="col-6">
+        <label asp-for="Number" class="form-label"></label>
+        <input asp-for="Number" class="form-control">
+    </div>
+    <div class="col-6">
+        <label class="form-label">Class</label>
+        <select asp-for="Classid" asp-items="ViewBag.Classes" class="form-select"></select>
+    </div>
+    <input asp-for="Class.ClassName" type="hidden"/>
+    <input asp-for="Class.Quota" type="hidden"/>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
