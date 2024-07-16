@@ -94,7 +94,7 @@ namespace Beltek.Project.Controllers
                         {
                             return BadRequest("Invalid Class ID.");
                         }
-                    }
+                    }                    
 
                     db.SaveChanges();
                     return RedirectToAction("Index");
