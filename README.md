@@ -1,4 +1,4 @@
-# Students' Operations Project
+# Students' Operations MVC Project
 ## Requirements:
 1. Microsoft Visual Studio
 2. Target Framework: .NET 6.0
