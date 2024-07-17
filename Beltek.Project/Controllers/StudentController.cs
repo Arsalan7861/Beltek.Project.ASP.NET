@@ -107,10 +107,8 @@ namespace Beltek.Project.Controllers
         public IActionResult DeleteStudent(int id)
         {
             using (var db = new SchoolDbContext())
-            {
-                var std = db.Students.Find(id);
-                db.Students.Remove(std);
-                db.Classes.Remove(db.Classes.Find(std.Classid));
+            {                
+                db.Students.Remove(db.Students.Find(id));                
                 db.SaveChanges();
             }
             return RedirectToAction("Index");
